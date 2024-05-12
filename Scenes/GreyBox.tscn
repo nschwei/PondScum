@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg3b0na8xx75u"]
+
+[ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
+[ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
+[ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
+[ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hqrv5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ma6f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
+material_override = ExtResource("1_e50fr")
+mesh = SubResource("BoxMesh_hqrv5")
+surface_material_override/0 = ExtResource("1_kdowq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_1ma6f")
+
+[node name="GreyBoxWall" parent="." instance=ExtResource("2_50knn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97588, 0.555329, 3.17155)
+
+[node name="Player" parent="." instance=ExtResource("3_aeydj")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.02299, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386911, 0.0371654, -4.73197, 8.81186, 0)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8s650jq4518"]
+
+[ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_pj44d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vl8dh"]
+
+[node name="GreyBoxWall" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vl8dh")
+surface_material_override/0 = ExtResource("1_pj44d")
