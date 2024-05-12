@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=8 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
+[ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 
@@ -9,7 +10,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ma6f"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Game" type="Node3D"]
+script = ExtResource("1_q4rcx")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)

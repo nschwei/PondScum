@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal score_points(points)
+
 @export_subgroup("Components")
 @export var view: Node3D
 
@@ -15,6 +17,10 @@ var gravity = 0
 var on_floor = false
 var is_spinning = false
 var starting_rot: Quaternion
+var rot_track_x = 0
+var rot_track_y = 0
+
+var points = 0
 
 @onready var model = $PlayerMesh
 
@@ -57,7 +63,7 @@ func _physics_process(delta):
 		# reload if we fall off the map
 		get_tree().reload_current_scene()
 		
-	on_floor = is_on_floor()
+	#on_floor = is_on_floor()
 	
 
 ##################################################
@@ -86,9 +92,13 @@ func handle_controls(delta):
 		# input for spin directions
 		if Input.is_action_pressed("front_flip"):
 			model.rotate_object_local(Vector3(1,0,0), turn_speed*delta)
+			rot_track_x += (turn_speed*delta)
 		if Input.is_action_pressed("side_flip"):
 			model.rotate_object_local(Vector3(0,0,1), turn_speed*delta)
 	
+func gain_points():
+	points += 1
+	score_points.emit(points)
 
 ##################################################
 # Gravity
@@ -99,8 +109,13 @@ func handle_gravity(delta):
 	if gravity > 0 and is_on_floor():
 		# stop apply force and let us spin again
 		gravity = 0
+		if not on_floor:
+			print('landed')
+			on_floor = true
+			gain_points()
 
 func jump():
+	on_floor = false
 	gravity = - jump_strength
 
 func restore_rot():

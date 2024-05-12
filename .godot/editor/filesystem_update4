@@ -5,3 +5,4 @@ res://Materials/GeryBoxMat.tres
 res://Materials/PlayerMat.tres
 res://Scenes/GreyBox.tscn
 res://EnvironObj/GreyBoxWall.tscn
+res://Scripts/Game_Manager.gd
