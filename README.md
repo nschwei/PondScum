@@ -23,8 +23,9 @@ if you don't you get a penalty multiplier
  - Score UI []
  
 #############
+### Map and visuals
 - grey box a map []
-- pixel shader []
+- pixel shader [x]
 - 3D models []
 
   ### Things for later
