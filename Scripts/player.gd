@@ -15,19 +15,20 @@ var movement_velocity: Vector3
 var rotation_direction: float
 var gravity = 0
 var on_floor = false
-var is_spinning = false
-var starting_rot: Quaternion
+
+### TRICK TIME ###
 var rot_track_x = 0
 var rot_track_y = 0
 
-var points = 0
+var trick_points = 0
+var total_points = 0
 
+### refs to things ###
 @onready var model = $PlayerMesh
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(model.rotation)
-	#starting_rot = Quaternion(Vector3(0,0,0), 0)
 	pass # Replace with function body.
 
 
@@ -86,6 +87,13 @@ func handle_controls(delta):
 	if Input.is_action_just_pressed("jump"):
 		if (is_on_floor()): jump()
 		
+	# Reverse Hold button to reverse direction
+	if Input.is_action_just_pressed("reverse"):
+		turn_speed = -turn_speed
+	# Return to normal on key release
+	if Input.is_action_just_released("reverse"):
+		turn_speed = - turn_speed
+		
 	# tricking
 	if not is_on_floor():
 		
@@ -95,10 +103,29 @@ func handle_controls(delta):
 			rot_track_x += (turn_speed*delta)
 		if Input.is_action_pressed("side_flip"):
 			model.rotate_object_local(Vector3(0,0,1), turn_speed*delta)
+			rot_track_y += (turn_speed*delta)
+			
+		# detect a full rotation
+		detect_rot()
+	
+	
+func detect_rot():
+	
+	# if over a full add points
+	if rot_track_x > 2*PI - .1*PI:
+		trick_points += 1
+		rot_track_x = 0
+		print('full front flip')
+		
+	if rot_track_y > 2*PI - .1*PI:
+		trick_points += 1
+		rot_track_y = 0
+		print('full side flip')
 	
 func gain_points():
-	points += 1
-	score_points.emit(points)
+	score_points.emit(trick_points)
+	print(trick_points)
+	trick_points = 0
 
 ##################################################
 # Gravity
@@ -110,9 +137,23 @@ func handle_gravity(delta):
 		# stop apply force and let us spin again
 		gravity = 0
 		if not on_floor:
-			print('landed')
-			on_floor = true
-			gain_points()
+			landing()
+			
+func landing():
+	on_floor = true
+	
+	# reset tracking
+	rot_track_x = 0
+	rot_track_y = 0
+	
+	# multiply score if upright
+	var xy_rot = Vector2(model.rotation.x, model.rotation.z)
+	print(xy_rot.length())
+	if xy_rot.length() < 0.6:
+		print("landed upright")
+		trick_points *= 2
+	# apply points
+	gain_points()
 
 func jump():
 	on_floor = false
@@ -120,9 +161,6 @@ func jump():
 
 func restore_rot():
 	print('return to normal')
-	#var current = Quaternion(model.transform.basis)
-	#var smoothrot = current.slerp(starting_rot, .5)
-	#model.transform.basis = Basis(smoothrot)
 	model.rotation = Vector3(0,0,0)
 	
 	

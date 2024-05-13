@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cmwx3qnv1o0sv"]
+
+[ext_resource type="Shader" path="res://Shader/outline.gdshader" id="1_3lwjy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3lwjy")
+shader_parameter/depth_threshold = 0.05
+shader_parameter/darken_amount = 0.1

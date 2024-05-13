@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkw6i4na6714r"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_fnun4"]
+[ext_resource type="Material" uid="uid://dsbv3a3in21kq" path="res://Materials/PlayerMat.tres" id="1_lm2e7"]
+[ext_resource type="Script" path="res://Scripts/FollowCam.gd" id="3_kr6f2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q7ua7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gn6uc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fq2xf"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("view")]
+script = ExtResource("1_fnun4")
+view = NodePath("Camera3D")
+movement_speed = 500
+jump_strength = 15
+gravity_strength = 15
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_lm2e7")
+mesh = SubResource("CapsuleMesh_q7ua7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerMesh"]
+transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.816191, 0.442039)
+mesh = SubResource("BoxMesh_gn6uc")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fq2xf")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 0.702153, 0.712026, 0, -0.712026, 0.702153, 0, 6.30275, 8.77752)
+script = ExtResource("3_kr6f2")
+player = NodePath("..")

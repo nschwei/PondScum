@@ -1,8 +1,9 @@
-res://PlayerObj/Player.tscn
+res://Scenes/GreyBox.tscn
 res://Scripts/player.gd
 res://Materials/GeryBoxMat_2.tres
 res://Materials/GeryBoxMat.tres
 res://Materials/PlayerMat.tres
-res://Scenes/GreyBox.tscn
+res://Shader/outline.gdshader
 res://EnvironObj/GreyBoxWall.tscn
-res://Scripts/Game_Manager.gd
+res://PlayerObj/Player.tscn
+res://Materials/pixel_shader_mat.tres

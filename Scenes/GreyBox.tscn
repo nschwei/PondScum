@@ -1,35 +1,64 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=10 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
+[ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hqrv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ma6f"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_dpoee"]
+material = ExtResource("6_0ophq")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_q4rcx")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="PixelView" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="PixelView"]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Level" type="Node3D" parent="PixelView/SubViewport"]
+
+[node name="Floor" type="MeshInstance3D" parent="PixelView/SubViewport/Level"]
 transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
 material_override = ExtResource("1_e50fr")
 mesh = SubResource("BoxMesh_hqrv5")
+skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("1_kdowq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PixelView/SubViewport/Level/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PixelView/SubViewport/Level/Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_1ma6f")
 
-[node name="GreyBoxWall" parent="." instance=ExtResource("2_50knn")]
+[node name="GreyBoxWall" parent="PixelView/SubViewport/Level" instance=ExtResource("2_50knn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97588, 0.555329, 3.17155)
 
-[node name="Player" parent="." instance=ExtResource("3_aeydj")]
+[node name="Player" parent="PixelView/SubViewport/Level" instance=ExtResource("3_aeydj")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.02299, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386911, 0.0371654, -4.73197, 8.81186, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelView/SubViewport/Level"]
+transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386912, 0.0371655, -4.73197, 8.81186, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PixelView/SubViewport"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_dpoee")

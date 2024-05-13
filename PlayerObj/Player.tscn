@@ -16,6 +16,7 @@ view = NodePath("Camera3D")
 movement_speed = 500
 jump_strength = 15
 gravity_strength = 15
+turn_speed = 6
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_lm2e7")
