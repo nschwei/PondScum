@@ -16,13 +16,13 @@ every time you complete a single rotation it should add a number of points to th
 if you land an your feet you get a full score
 if you don't you get a penalty multiplier
 
-  ############
-- UI []
-  - Pause menu []
-  - Main menu []
-  - Score UI []
+############
+### UI
+ - Pause menu []
+ - Main menu []
+ - Score UI []
  
-   #############
+#############
 - grey box a map []
 - pixel shader []
 - 3D models []
