@@ -4,6 +4,6 @@ res://Materials/GeryBoxMat_2.tres
 res://Materials/GeryBoxMat.tres
 res://Materials/PlayerMat.tres
 res://Shader/outline.gdshader
+res://Materials/pixel_shader_mat.tres
 res://EnvironObj/GreyBoxWall.tscn
 res://PlayerObj/Player.tscn
-res://Materials/pixel_shader_mat.tres
