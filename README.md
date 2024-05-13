@@ -4,9 +4,12 @@
 ## TODO
 - basic movement [x]
 - spinning in air [x]
-       This is kinda jank right now and Im not sure what I want to do to make it better. Should I add something to reverse the spin direction
-- Scoring points for spinning [] (keep it super simple for now + bonus for landing upright)
+       This is kinda jank right now and Im not sure what I want to do to make it better. Should I add something to reverse the spin direction (I did but I still don't really like what I did)
+- Scoring points for spinning [x] (keep it super simple for now + bonus for landing upright)
+
 - score win limit []
+- limits change?
+- dialogue system [] (Just some short lines of text being said in the beginning?)
 
 ### How should scoring work?
 every time you complete a single rotation it should add a number of points to the counter
@@ -23,5 +26,7 @@ if you don't you get a penalty multiplier
 - grey box a map []
 - pixel shader []
 - 3D models []
+
+  ### Things for later
 - jump pad? []
 - geese scoring ? []
