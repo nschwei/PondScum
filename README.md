@@ -30,6 +30,11 @@ if you don't you get a penalty multiplier
 - 3D models []
 
 #############
+### Music
+- Game track (chiptune?) []
+- Main Menu track []
+
+#############
 ### Things for later
 - jump pad? []
 - geese scoring ? []
