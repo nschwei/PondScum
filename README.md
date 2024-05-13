@@ -28,6 +28,7 @@ if you don't you get a penalty multiplier
 - pixel shader [x]
 - 3D models []
 
-  ### Things for later
+#############
+### Things for later
 - jump pad? []
 - geese scoring ? []
