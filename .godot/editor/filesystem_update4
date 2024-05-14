@@ -9,3 +9,4 @@ res://EnvironObj/GreyBoxWall.tscn
 res://PlayerObj/Player.tscn
 res://PlayerObj/TotalScore.gd
 res://Scenes/CanvasLayer.gd
+res://Scripts/Game_Manager.gd
