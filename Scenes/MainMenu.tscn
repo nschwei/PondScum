@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://doxqj5egoho01"]
+[gd_scene load_steps=12 format=3 uid="uid://doxqj5egoho01"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_13s00"]
+[ext_resource type="Material" uid="uid://bw0vneyij3v8" path="res://Materials/grass.tres" id="2_0pdq2"]
+[ext_resource type="PackedScene" uid="uid://c25wnipfj4opv" path="res://Models/BirchTree.glb" id="2_h7u34"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="2_xhfgo"]
+[ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="3_d5vt1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afray"]
 
@@ -23,8 +26,7 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lnei3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_xcyrb"]
+material = ExtResource("2_0pdq2")
 
 [sub_resource type="Environment" id="Environment_uu8e6"]
 background_mode = 1
@@ -67,12 +69,17 @@ transform = Transform3D(0.972227, 0, 0.234039, 0, 1, 0, -0.234039, 0, 0.972227, 
 [node name="World" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="PlaceholderGround" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World"]
-transform = Transform3D(6.33605, 0, 0, 0, 0.318677, 0, 0, 0, 5.24318, 0, 0, 0)
+transform = Transform3D(27.2598, 0, 0, 0, 0.318677, 0, 0, 0, 20.3756, 0, 0, 0)
 mesh = SubResource("BoxMesh_lnei3")
 
-[node name="PlaceHolderTree" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World"]
-transform = Transform3D(0.430762, -0.026968, 0, 0.00261637, 4.44004, 0, 0, 0, 0.204739, -0.619789, 1.21042, 0)
-mesh = SubResource("BoxMesh_xcyrb")
+[node name="BirchTree" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("2_h7u34")]
+transform = Transform3D(0.384493, 0, 0.319632, 0, 0.5, 0, -0.319632, 0, 0.384493, -2.49954, 2.41683, -0.493525)
+
+[node name="NormalTree" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("3_d5vt1")]
+transform = Transform3D(-0.261701, 0, -0.402384, 0, 0.48, 0, 0.402384, 0, -0.261701, 6.88211, 2.35865, -5.13415)
+
+[node name="NormalTree2" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("3_d5vt1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.4349, 2.50777, -8.85094)
 
 [node name="MainMenu" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("1_13s00")

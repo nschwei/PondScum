@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://bg3b0na8xx75u"]
 
-[ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
+[ext_resource type="Material" uid="uid://bw0vneyij3v8" path="res://Materials/grass.tres" id="2_g4468"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
 [ext_resource type="PackedScene" uid="uid://dpgt8hkv8yfnt" path="res://EnvironObj/InvisWall.tscn" id="6_ljlob"]
@@ -62,7 +62,7 @@ render_target_update_mode = 4
 
 [node name="Floor" type="MeshInstance3D" parent="PixelView/SubViewport/Level"]
 transform = Transform3D(73.3482, 0, 0, 0, 0.2, 0, 0, 0, 62.123, 0, 0, 0)
-material_override = ExtResource("1_e50fr")
+material_override = ExtResource("2_g4468")
 mesh = SubResource("BoxMesh_hqrv5")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("1_kdowq")
