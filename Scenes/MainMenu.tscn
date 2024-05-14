@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://doxqj5egoho01"]
+[gd_scene load_steps=10 format=3 uid="uid://doxqj5egoho01"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_13s00"]
+[ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="2_xhfgo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afray"]
 
@@ -10,9 +11,16 @@ sky_material = SubResource("ProceduralSkyMaterial_afray")
 [sub_resource type="Environment" id="Environment_8ljcj"]
 background_mode = 2
 sky = SubResource("Sky_u48i4")
+ambient_light_source = 2
+ambient_light_color = Color(0.720199, 0.592807, 0.507984, 1)
 fog_enabled = true
 fog_light_color = Color(0.298601, 0.574927, 0.798911, 1)
 fog_sun_scatter = 0.57
+
+[sub_resource type="QuadMesh" id="QuadMesh_qi1rf"]
+material = ExtResource("2_xhfgo")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lnei3"]
 
@@ -48,6 +56,10 @@ stretch_shrink = 3
 handle_input_locally = false
 size = Vector2i(384, 216)
 render_target_update_mode = 4
+
+[node name="Outlines" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_qi1rf")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(0.972227, 0, 0.234039, 0, 1, 0, -0.234039, 0, 0.972227, 1.48024, 1.51463, 3.94153)

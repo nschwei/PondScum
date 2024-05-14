@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=13 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
+[ext_resource type="PackedScene" uid="uid://dpgt8hkv8yfnt" path="res://EnvironObj/InvisWall.tscn" id="6_ljlob"]
 [ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="7_ykbr5"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
@@ -56,7 +57,7 @@ render_target_update_mode = 4
 [node name="Level" type="Node3D" parent="PixelView/SubViewport"]
 
 [node name="Floor" type="MeshInstance3D" parent="PixelView/SubViewport/Level"]
-transform = Transform3D(62.6877, 0, 0, 0, 0.2, 0, 0, 0, 54.3399, 0, 0, 0)
+transform = Transform3D(73.3482, 0, 0, 0, 0.2, 0, 0, 0, 62.123, 0, 0, 0)
 material_override = ExtResource("1_e50fr")
 mesh = SubResource("BoxMesh_hqrv5")
 skeleton = NodePath("../../../..")
@@ -67,8 +68,46 @@ surface_material_override/0 = ExtResource("1_kdowq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PixelView/SubViewport/Level/Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_1ma6f")
 
-[node name="GreyBoxWall" parent="PixelView/SubViewport/Level" instance=ExtResource("2_50knn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97588, 0.555329, 3.17155)
+[node name="Objects" type="Node3D" parent="PixelView/SubViewport/Level"]
+
+[node name="GreyBoxWall" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -7.91366, 0.555329, 7.7497)
+
+[node name="GreyBoxWall2" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, 7.09223, 0.555329, 6.25297)
+
+[node name="GreyBoxWall5" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -25.2871, 0.555327, -4.7737)
+
+[node name="GreyBoxWall11" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, 4.14404, 0.0765788, 20.6062)
+
+[node name="GreyBoxWall13" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0.892465, 0.0765788, -5.46155)
+
+[node name="GreyBoxWall14" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0.892465, 0.0765788, -5.46155)
+
+[node name="GreyBoxWall6" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(0.932132, 0, 0.0687321, 0, 10.6883, 0, -0.0929735, 0, 0.689094, -24.8239, 6.84349, -18.8668)
+
+[node name="GreyBoxWall10" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(0.932132, 0, 0.0687321, 0, 10.6883, 0, -0.0929735, 0, 0.689094, -13.1116, 5.04927, 2.82995)
+
+[node name="GreyBoxWall7" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -2.85838, 0.555325, -19.4424)
+
+[node name="GreyBoxWall8" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(3.49017, 0, 0.42132, 0, 7.25339, 0, -0.34812, 0, 4.22407, 22.6125, 1.35774, -2.81156)
+
+[node name="GreyBoxWall12" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(3.49017, 0, 0.42132, 0, 7.25339, 0, -0.34812, 0, 4.22407, -17.6989, 1.35774, 21.1807)
+
+[node name="GreyBoxWall9" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(1.35896, 0, 1.47829, 0, 2.71185, 0, -1.17975, 0, 1.70286, 19.0946, 1.35774, -1.83946)
+
+[node name="GreyBoxWall3" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
+transform = Transform3D(17.4444, 0, 0.258198, 0, 1, 0, -1.73995, 0, 2.58864, -0.438513, 1.57158, 7.0041)
 
 [node name="Player" parent="PixelView/SubViewport/Level" instance=ExtResource("3_aeydj")]
 unique_name_in_owner = true
@@ -77,7 +116,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.02299, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelView/SubViewport/Level"]
 transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386912, 0.0371655, -4.73197, 8.81186, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PixelView/SubViewport"]
+[node name="Walls" type="Node3D" parent="PixelView/SubViewport/Level"]
+
+[node name="InvisWall" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
+transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.4392)
+
+[node name="InvisWall2" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
+transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.9317)
+
+[node name="InvisWall3" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
+transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, -36.8171, 0, -0.692869)
+
+[node name="InvisWall4" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
+transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, 36.9602, 3.8147e-06, -0.457014)
+
+[node name="Outlines" type="MeshInstance3D" parent="PixelView/SubViewport"]
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dpoee")
 

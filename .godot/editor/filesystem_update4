@@ -11,3 +11,4 @@ res://PlayerObj/Player.tscn
 res://Scripts/Game_Manager.gd
 res://Scenes/MainMenu.tscn
 res://Scripts/MainMenu.gd
+res://EnvironObj/InvisWall.tscn

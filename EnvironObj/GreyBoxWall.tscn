@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq8s650jq4518"]
+[gd_scene load_steps=4 format=3 uid="uid://bq8s650jq4518"]
 
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_pj44d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vl8dh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxeup"]
 
 [node name="GreyBoxWall" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_vl8dh")
 surface_material_override/0 = ExtResource("1_pj44d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_bxeup")

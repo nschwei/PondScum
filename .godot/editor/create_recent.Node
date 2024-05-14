@@ -1,3 +1,7 @@
+CollisionShape3D
+StaticBody3D
+MeshInstance3D
+Node3D
 Button
 Label
 VBoxContainer
@@ -5,10 +9,6 @@ MarginContainer
 PanelContainer
 CanvasLayer
 WorldEnvironment
-MeshInstance3D
-Node3D
 Camera3D
 SubViewport
 SubViewportContainer
-Decal
-Panel

@@ -88,6 +88,8 @@ func handle_controls(delta):
 	
 	if is_on_floor():
 		movement_velocity = input * movement_speed * delta
+	else: 
+		movement_velocity = input * movement_speed * delta * .5
 	
 	# jumping
 	if Input.is_action_just_pressed("jump"):
