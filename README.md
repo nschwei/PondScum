@@ -21,7 +21,7 @@ if you don't you get a penalty multiplier
 ### UI
  - Pause menu []
  - Main menu []
- - Score UI []
+ - Score UI [x]
  
 #############
 ### Map and visuals
