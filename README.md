@@ -23,7 +23,8 @@ if you don't you get a penalty multiplier
 ### UI
  - Pause menu [x]
      - this will need some art and stuff but it functions for now []
- - Main menu []
+ - Main menu [x]
+      - Once again this is functionally there but very bare bones in the looks []
  - Score UI [x]
  
 #############
