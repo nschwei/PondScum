@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=17 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
@@ -8,6 +8,10 @@
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
 [ext_resource type="PackedScene" uid="uid://dpgt8hkv8yfnt" path="res://EnvironObj/InvisWall.tscn" id="6_ljlob"]
 [ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="7_ykbr5"]
+[ext_resource type="PackedScene" uid="uid://bwfm5jeuxsivq" path="res://Models/Pine.glb" id="9_6i2to"]
+[ext_resource type="PackedScene" uid="uid://c25wnipfj4opv" path="res://Models/BirchTree.glb" id="10_6hgrr"]
+[ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="11_lvhhp"]
+[ext_resource type="PackedScene" uid="uid://b6fuc665uyqtl" path="res://Models/WillowTree.glb" id="12_ps1is"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
 background_mode = 1
@@ -87,12 +91,6 @@ transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0
 
 [node name="GreyBoxWall14" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
 transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0.892465, 0.0765788, -5.46155)
-
-[node name="GreyBoxWall6" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(0.932132, 0, 0.0687321, 0, 10.6883, 0, -0.0929735, 0, 0.689094, -24.8239, 6.84349, -18.8668)
-
-[node name="GreyBoxWall10" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(0.932132, 0, 0.0687321, 0, 10.6883, 0, -0.0929735, 0, 0.689094, -13.1116, 5.04927, 2.82995)
 
 [node name="GreyBoxWall7" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
 transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -2.85838, 0.555325, -19.4424)
@@ -225,6 +223,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "Quit"
+
+[node name="Pine" parent="." instance=ExtResource("9_6i2to")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4823, 5.1766, 2.34266)
+
+[node name="BirchTree" parent="." instance=ExtResource("10_6hgrr")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.5026, 6.82729, -24.8562)
+
+[node name="NormalTree" parent="." instance=ExtResource("11_lvhhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0675, 5.07921, -18.103)
+
+[node name="WillowTree" parent="." instance=ExtResource("12_ps1is")]
+transform = Transform3D(0.103227, 0, 0.994658, 0, 1, 0, -0.994658, 0, 0.103227, 25.9899, 7.21142, 19.1261)
 
 [connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
 [connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]
