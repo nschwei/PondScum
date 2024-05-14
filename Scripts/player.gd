@@ -69,7 +69,8 @@ func _physics_process(delta):
 		# reload if we fall off the map
 		get_tree().reload_current_scene()
 		
-	#on_floor = is_on_floor()
+	# animation for landing and jumping return scale
+	model.scale = model.scale.lerp(Vector3(1, 1, 1), delta * 5)
 	
 
 ##################################################
@@ -160,6 +161,7 @@ func landing():
 	rot_track_x = 0
 	rot_track_y = 0
 	
+	model.scale = Vector3(1.25, 0.75, 1.25)
 	# multiply score if upright
 	var xy_rot = Vector2(model.rotation.x, model.rotation.z)
 	#print(xy_rot.length())
@@ -173,6 +175,7 @@ func landing():
 func jump():
 	on_floor = false
 	gravity = - jump_strength
+	model.scale = Vector3(0.5, 1.5, 0.5)
 
 func restore_rot():
 	print('return to normal')
