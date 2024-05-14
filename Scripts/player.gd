@@ -101,13 +101,12 @@ func handle_controls(delta):
 		var input_dir = Vector2(input.x, input.z).normalized()
 		#char_facing = Vector2(model.transform.basis.z.x, model.transform.basis.z.z).normalized()
 		var rot_mod = input_dir.dot(char_facing)
-		print(char_facing)
 		#if rot_mod >= 0:
 		#	rot_mod = 1
 		#else: 
 		#	rot_mod = -1
 		# input for spin directions
-		if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back"):
+		if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			model.rotate_object_local(Vector3(1,0,0), turn_speed*delta*rot_mod)
 			rot_track_x += (turn_speed*delta*rot_mod)
 		if Input.is_action_pressed("side_flip"):
@@ -157,7 +156,7 @@ func landing():
 	
 	# multiply score if upright
 	var xy_rot = Vector2(model.rotation.x, model.rotation.z)
-	print(xy_rot.length())
+	#print(xy_rot.length())
 	if xy_rot.length() < 0.6:
 		print("landed upright")
 		trick_points *= 2

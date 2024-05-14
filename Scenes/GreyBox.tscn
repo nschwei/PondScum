@@ -38,7 +38,7 @@ render_target_update_mode = 4
 [node name="Level" type="Node3D" parent="PixelView/SubViewport"]
 
 [node name="Floor" type="MeshInstance3D" parent="PixelView/SubViewport/Level"]
-transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(62.6877, 0, 0, 0, 0.2, 0, 0, 0, 54.3399, 0, 0, 0)
 material_override = ExtResource("1_e50fr")
 mesh = SubResource("BoxMesh_hqrv5")
 skeleton = NodePath("../../../..")
@@ -62,3 +62,33 @@ transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PixelView/SubViewport"]
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dpoee")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 45.0
+offset_top = 32.0
+offset_right = 85.0
+offset_bottom = 72.0
+
+[node name="TotalScorePanel" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/TotalScorePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreTitle" type="Label" parent="CanvasLayer/PanelContainer/TotalScorePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SCORE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalScore" type="Label" parent="CanvasLayer/PanelContainer/TotalScorePanel/VBoxContainer"]
+layout_mode = 2
+text = "1000000000"
+horizontal_alignment = 1
+vertical_alignment = 1
