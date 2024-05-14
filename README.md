@@ -9,7 +9,7 @@
 - rag dolling in air []
 
 - score win limit [x]
-- drop shadow []
+- drop shadow [x]
 - limits change?
 - dialogue system [] (Just some short lines of text being said in the beginning?)
 
