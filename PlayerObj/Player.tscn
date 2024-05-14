@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkw6i4na6714r"]
+[gd_scene load_steps=8 format=3 uid="uid://dkw6i4na6714r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fnun4"]
 [ext_resource type="Material" uid="uid://dsbv3a3in21kq" path="res://Materials/PlayerMat.tres" id="1_lm2e7"]
 [ext_resource type="Script" path="res://Scripts/FollowCam.gd" id="3_kr6f2"]
+[ext_resource type="Texture2D" uid="uid://bd6up3a8yyvsk" path="res://Materials/blob_shadow.png" id="4_hr8io"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q7ua7"]
 
@@ -33,3 +34,9 @@ shape = SubResource("CapsuleShape3D_fq2xf")
 transform = Transform3D(1, 0, 0, 0, 0.702153, 0.712026, 0, -0.712026, 0.702153, 0, 6.30275, 8.77752)
 script = ExtResource("3_kr6f2")
 player = NodePath("..")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(0.0194418, 0, -0.999811, 0, 1, 0, 0.999811, 0, 0.0194418, 0, -3.64669, 0)
+size = Vector3(2, 6.45007, 2)
+texture_albedo = ExtResource("4_hr8io")
+normal_fade = 0.5
