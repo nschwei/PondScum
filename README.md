@@ -12,6 +12,7 @@
 - score win limit [x]
 - drop shadow [x]
 - limits change?
+- pickup to increase spin speed []?
 - dialogue system [] (Just some short lines of text being said in the beginning?)
 
 ### How should scoring work?
