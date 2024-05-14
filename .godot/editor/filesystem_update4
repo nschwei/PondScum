@@ -9,3 +9,5 @@ res://Scenes/CanvasLayer.gd
 res://EnvironObj/GreyBoxWall.tscn
 res://PlayerObj/Player.tscn
 res://Scripts/Game_Manager.gd
+res://Scenes/MainMenu.tscn
+res://Scripts/MainMenu.gd

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=12 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
@@ -6,7 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
-[ext_resource type="Script" path="res://Scenes/CanvasLayer.gd" id="7_ykbr5"]
+[ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="7_ykbr5"]
+
+[sub_resource type="Environment" id="Environment_i80ls"]
+background_mode = 1
+background_color = Color(0, 0.743474, 0.966947, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.936393, 0.610158, 0.32988, 1)
+reflected_light_source = 1
+fog_light_color = Color(0.130901, 0.584493, 0.848018, 1)
+fog_light_energy = 0.0
+fog_sun_scatter = 0.15
+fog_density = 0.0
+fog_sky_affect = 0.645
 
 [sub_resource type="BoxMesh" id="BoxMesh_hqrv5"]
 
@@ -19,6 +31,9 @@ size = Vector2(2, 2)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_q4rcx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i80ls")
 
 [node name="PixelView" type="SubViewportContainer" parent="."]
 process_mode = 3
