@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=11 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Material" uid="uid://1v2slhbdewwt" path="res://Materials/GeryBoxMat_2.tres" id="1_e50fr"]
 [ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
+[ext_resource type="Script" path="res://Scenes/CanvasLayer.gd" id="7_ykbr5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hqrv5"]
 
@@ -63,32 +64,57 @@ transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_dpoee")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="PixelView/SubViewport"]
+script = ExtResource("7_ykbr5")
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 45.0
-offset_top = 32.0
-offset_right = 85.0
-offset_bottom = 72.0
+[node name="TotalScorePanel" type="PanelContainer" parent="PixelView/SubViewport/CanvasLayer"]
+offset_right = 39.0
+offset_bottom = 37.0
 
-[node name="TotalScorePanel" type="Panel" parent="CanvasLayer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/TotalScorePanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ScoreTitle" type="Label" parent="CanvasLayer/PanelContainer/TotalScorePanel/VBoxContainer"]
+[node name="ScoreTitle" type="Label" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 12
 text = "SCORE
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TotalScore" type="Label" parent="CanvasLayer/PanelContainer/TotalScorePanel/VBoxContainer"]
+[node name="TotalScore" type="Label" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "1000000000"
+theme_override_font_sizes/font_size = 11
+text = "0
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CurrentScorePanel" type="PanelContainer" parent="PixelView/SubViewport/CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/CurrentScorePanel"]
+layout_mode = 2
+
+[node name="CurrentScore" type="Label" parent="PixelView/SubViewport/CanvasLayer/CurrentScorePanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
+[connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]

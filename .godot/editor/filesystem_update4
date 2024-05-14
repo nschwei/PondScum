@@ -7,3 +7,5 @@ res://Shader/outline.gdshader
 res://Materials/pixel_shader_mat.tres
 res://EnvironObj/GreyBoxWall.tscn
 res://PlayerObj/Player.tscn
+res://PlayerObj/TotalScore.gd
+res://Scenes/CanvasLayer.gd

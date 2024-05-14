@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-signal score_points(points)
+signal score_points(points, bonus_string)
+signal trick_score(points)
 
 @export_subgroup("Components")
 @export var view: Node3D
@@ -24,6 +25,8 @@ var rot_track_y = 0
 
 var trick_points = 0
 var total_points = 0
+
+var bonus_string = ""
 
 ### refs to things ###
 @onready var model = $PlayerMesh
@@ -129,11 +132,14 @@ func detect_rot():
 		trick_points += 1
 		rot_track_y = 0
 		print('full side flip')
+		
+	trick_score.emit(trick_points)
 	
 func gain_points():
-	score_points.emit(trick_points)
+	score_points.emit(trick_points, bonus_string)
 	print(trick_points)
 	trick_points = 0
+	bonus_string = ""
 
 ##################################################
 # Gravity
@@ -160,6 +166,7 @@ func landing():
 	if xy_rot.length() < 0.6:
 		print("landed upright")
 		trick_points *= 2
+		bonus_string = " x 2"
 	# apply points
 	gain_points()
 
@@ -172,3 +179,4 @@ func restore_rot():
 	model.rotation = Vector3(0,0,0)
 	
 	
+
