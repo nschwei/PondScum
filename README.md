@@ -8,7 +8,8 @@
 - Scoring points for spinning [x] (keep it super simple for now + bonus for landing upright)
 - rag dolling in air []
 
-- score win limit []
+- score win limit [x]
+- drop shadow []
 - limits change?
 - dialogue system [] (Just some short lines of text being said in the beginning?)
 
