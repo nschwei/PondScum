@@ -15,12 +15,13 @@
 
 ### How should scoring work?
 every time you complete a single rotation it should add a number of points to the counter
-if you land an your feet you get a full score
+if you land on your feet you get a full score
 if you don't you get a penalty multiplier
 
 ############
 ### UI
- - Pause menu []
+ - Pause menu [x]
+     - this will need some art and stuff but it functions for now []
  - Main menu []
  - Score UI [x]
  
