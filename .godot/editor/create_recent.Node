@@ -1,7 +1,8 @@
+AnimationPlayer
+Node3D
 GPUParticles3D
 CPUParticles3D
 MeshInstance3D
-Node3D
 CollisionShape3D
 StaticBody3D
 Button
@@ -12,4 +13,3 @@ PanelContainer
 CanvasLayer
 WorldEnvironment
 Camera3D
-SubViewport

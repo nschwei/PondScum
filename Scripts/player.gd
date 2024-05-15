@@ -29,8 +29,10 @@ var total_points = 0
 var bonus_string = ""
 
 ### refs to things ###
-@onready var model = $PlayerMesh
+#@onready var model = $PlayerMesh
+@onready var model = $PlayerCenter
 @onready var particles_trail = $ParticlesTrail
+@onready var animation = $PlayerCenter/goosed/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -196,6 +198,13 @@ func handle_effects():
 	particles_trail.emitting = false
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+			animation.play("Running")
+			animation.speed_scale = 3
 			particles_trail.emitting = true
+		else:
+			animation.play("Idle")
+			animation.speed_scale = 1
+	else:
+		animation.stop()
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkw6i4na6714r"]
+[gd_scene load_steps=11 format=3 uid="uid://dkw6i4na6714r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fnun4"]
 [ext_resource type="Material" uid="uid://dsbv3a3in21kq" path="res://Materials/PlayerMat.tres" id="1_lm2e7"]
+[ext_resource type="PackedScene" uid="uid://bufxqhjjljdl5" path="res://Models/goosed.gltf" id="2_3y3vw"]
 [ext_resource type="Script" path="res://Scripts/FollowCam.gd" id="3_kr6f2"]
 [ext_resource type="Texture2D" uid="uid://bd6up3a8yyvsk" path="res://Materials/blob_shadow.png" id="4_hr8io"]
 [ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://Models/dust.res" id="5_vrxuu"]
@@ -22,7 +23,15 @@ jump_strength = 15
 gravity_strength = 15
 turn_speed = 6
 
+[node name="PlayerCenter" type="Node3D" parent="."]
+
+[node name="goosed" parent="PlayerCenter" instance=ExtResource("2_3y3vw")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.820028, -0.0951163)
+
+[node name="GooseAnim" type="AnimationPlayer" parent="PlayerCenter/goosed"]
+
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
+visible = false
 material_override = ExtResource("1_lm2e7")
 mesh = SubResource("CapsuleMesh_q7ua7")
 
