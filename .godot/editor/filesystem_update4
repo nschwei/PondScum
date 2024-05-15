@@ -14,3 +14,6 @@ res://Models/willow_tree.res
 res://Models/bulby_tree.res
 res://tree.res
 res://Materials/grass.tres
+res://Models/Material.001.tres
+res://Shader/water.gdshader
+res://Materials/water.tres

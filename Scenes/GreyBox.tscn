@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=16 format=3 uid="uid://bg3b0na8xx75u"]
 
-[ext_resource type="Material" uid="uid://cj8esijty2q1e" path="res://Materials/GeryBoxMat.tres" id="1_kdowq"]
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
+[ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="2_7tvl6"]
 [ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
-[ext_resource type="Material" uid="uid://bw0vneyij3v8" path="res://Materials/grass.tres" id="2_g4468"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
 [ext_resource type="PackedScene" uid="uid://dpgt8hkv8yfnt" path="res://EnvironObj/InvisWall.tscn" id="6_ljlob"]
 [ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="7_ykbr5"]
+[ext_resource type="Material" uid="uid://b8bitd1ep6opn" path="res://Materials/water2.tres" id="8_l20h3"]
 [ext_resource type="PackedScene" uid="uid://bwfm5jeuxsivq" path="res://Models/Pine.glb" id="9_6i2to"]
 [ext_resource type="PackedScene" uid="uid://c25wnipfj4opv" path="res://Models/BirchTree.glb" id="10_6hgrr"]
 [ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="11_lvhhp"]
@@ -25,9 +25,8 @@ fog_sun_scatter = 0.15
 fog_density = 0.0
 fog_sky_affect = 0.645
 
-[sub_resource type="BoxMesh" id="BoxMesh_hqrv5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1ma6f"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_lv1hm"]
+material = ExtResource("8_l20h3")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dpoee"]
 material = ExtResource("6_0ophq")
@@ -60,17 +59,8 @@ render_target_update_mode = 4
 
 [node name="Level" type="Node3D" parent="PixelView/SubViewport"]
 
-[node name="Floor" type="MeshInstance3D" parent="PixelView/SubViewport/Level"]
-transform = Transform3D(73.3482, 0, 0, 0, 0.2, 0, 0, 0, 62.123, 0, 0, 0)
-material_override = ExtResource("2_g4468")
-mesh = SubResource("BoxMesh_hqrv5")
-skeleton = NodePath("../../../..")
-surface_material_override/0 = ExtResource("1_kdowq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="PixelView/SubViewport/Level/Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PixelView/SubViewport/Level/Floor/StaticBody3D"]
-shape = SubResource("BoxShape3D_1ma6f")
+[node name="groundPondScum" parent="PixelView/SubViewport/Level" instance=ExtResource("2_7tvl6")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 0.0426655, -0.770055, -0.0506592)
 
 [node name="Objects" type="Node3D" parent="PixelView/SubViewport/Level"]
 
@@ -81,7 +71,7 @@ transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -7
 transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, 7.09223, 0.555329, 6.25297)
 
 [node name="GreyBoxWall5" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -25.2871, 0.555327, -4.7737)
+transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -25.2445, 0.502806, -4.68793)
 
 [node name="GreyBoxWall11" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
 transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, 4.14404, 0.0765788, 20.6062)
@@ -99,7 +89,7 @@ transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -2
 transform = Transform3D(3.49017, 0, 0.42132, 0, 7.25339, 0, -0.34812, 0, 4.22407, 22.6125, 1.35774, -2.81156)
 
 [node name="GreyBoxWall12" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(3.49017, 0, 0.42132, 0, 7.25339, 0, -0.34812, 0, 4.22407, -17.6989, 1.35774, 21.1807)
+transform = Transform3D(3.49017, 0, 0.42132, 0, 7.25339, 0, -0.34812, 0, 4.22407, -22.4367, 1.35774, 25.9669)
 
 [node name="GreyBoxWall9" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
 transform = Transform3D(1.35896, 0, 1.47829, 0, 2.71185, 0, -1.17975, 0, 1.70286, 19.0946, 1.35774, -1.83946)
@@ -107,9 +97,25 @@ transform = Transform3D(1.35896, 0, 1.47829, 0, 2.71185, 0, -1.17975, 0, 1.70286
 [node name="GreyBoxWall3" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
 transform = Transform3D(17.4444, 0, 0.258198, 0, 1, 0, -1.73995, 0, 2.58864, -0.438513, 1.57158, 7.0041)
 
+[node name="Pine" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("9_6i2to")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4823, 5.1766, 2.34266)
+
+[node name="BirchTree" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("10_6hgrr")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -24.6889, 6.54564, -25.884)
+
+[node name="NormalTree" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("11_lvhhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5366, 4.70364, -26.0444)
+
+[node name="WillowTree" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("12_ps1is")]
+transform = Transform3D(0.103227, 0, 0.994658, 0, 1, 0, -0.994658, 0, 0.103227, 25.2071, 7.21142, 25.4751)
+
+[node name="Water" type="MeshInstance3D" parent="PixelView/SubViewport/Level/Objects"]
+transform = Transform3D(29.5189, 0, 0, 0, 30, 0, 0, 0, 28.7471, 0, -0.645183, 0)
+mesh = SubResource("PlaneMesh_lv1hm")
+
 [node name="Player" parent="PixelView/SubViewport/Level" instance=ExtResource("3_aeydj")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.02299, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866235, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelView/SubViewport/Level"]
 transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386912, 0.0371655, -4.73197, 8.81186, 0)
@@ -117,16 +123,16 @@ transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0
 [node name="Walls" type="Node3D" parent="PixelView/SubViewport/Level"]
 
 [node name="InvisWall" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
-transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.4392)
+transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.0286)
 
 [node name="InvisWall2" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
-transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.9317)
+transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.0198)
 
 [node name="InvisWall3" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
-transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, -36.8171, 0, -0.692869)
+transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, -29.992, 0, -0.692869)
 
 [node name="InvisWall4" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
-transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, 36.9602, 3.8147e-06, -0.457014)
+transform = Transform3D(-3.0598e-07, 0, 1, 0, 1, 0, -7, 0, -4.37114e-08, 28.8853, 3.8147e-06, -0.457014)
 
 [node name="Outlines" type="MeshInstance3D" parent="PixelView/SubViewport"]
 extra_cull_margin = 16384.0
@@ -178,6 +184,8 @@ grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/CurrentScorePanel"]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
 
 [node name="CurrentScore" type="Label" parent="PixelView/SubViewport/CanvasLayer/CurrentScorePanel/MarginContainer"]
 layout_mode = 2
@@ -223,18 +231,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "Quit"
-
-[node name="Pine" parent="." instance=ExtResource("9_6i2to")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4823, 5.1766, 2.34266)
-
-[node name="BirchTree" parent="." instance=ExtResource("10_6hgrr")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.5026, 6.82729, -24.8562)
-
-[node name="NormalTree" parent="." instance=ExtResource("11_lvhhp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0675, 5.07921, -18.103)
-
-[node name="WillowTree" parent="." instance=ExtResource("12_ps1is")]
-transform = Transform3D(0.103227, 0, 0.994658, 0, 1, 0, -0.994658, 0, 0.103227, 25.9899, 7.21142, 19.1261)
 
 [connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
 [connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]

@@ -1,7 +1,7 @@
+MeshInstance3D
 Node3D
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 Button
 Label
 VBoxContainer
