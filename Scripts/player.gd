@@ -115,32 +115,34 @@ func handle_controls(delta):
 		if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			model.rotate_object_local(Vector3(1,0,0), turn_speed*delta*rot_mod)
 			rot_track_x += (turn_speed*delta*rot_mod)
+			trick_points += turn_speed*delta*rot_mod
 		if Input.is_action_pressed("side_flip"):
 			model.rotate_object_local(Vector3(0,0,1), turn_speed*delta)
 			rot_track_y += (turn_speed*delta)
+			trick_points += turn_speed*delta*rot_mod
 			
 		# detect a full rotation
 		detect_rot()
 	
 	
 func detect_rot():
-	
 	# if over a full add points
-	if rot_track_x > 2*PI - .1*PI:
-		trick_points += 1
+	if abs(rot_track_x) > 2*PI - .1*PI:
+		trick_points += 10
 		rot_track_x = 0
 		print('full front flip')
 		
-	if rot_track_y > 2*PI - .1*PI:
-		trick_points += 1
+	if abs(rot_track_y) > 2*PI - .1*PI:
+		trick_points += 10
 		rot_track_y = 0
 		print('full side flip')
 		
-	trick_score.emit(trick_points)
+	trick_points = abs(snapped(trick_points, .1))
+	trick_score.emit(int(trick_points))
 	
 func gain_points():
-	score_points.emit(trick_points, bonus_string)
-	print(trick_points)
+	score_points.emit(int(trick_points), bonus_string)
+	#print(trick_points)
 	trick_points = 0
 	bonus_string = ""
 
