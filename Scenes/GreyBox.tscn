@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="2_7tvl6"]
-[ext_resource type="PackedScene" uid="uid://bq8s650jq4518" path="res://EnvironObj/GreyBoxWall.tscn" id="2_50knn"]
 [ext_resource type="PackedScene" uid="uid://dkw6i4na6714r" path="res://PlayerObj/Player.tscn" id="3_aeydj"]
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="6_0ophq"]
 [ext_resource type="PackedScene" uid="uid://dpgt8hkv8yfnt" path="res://EnvironObj/InvisWall.tscn" id="6_ljlob"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="11_lvhhp"]
 [ext_resource type="PackedScene" uid="uid://b6fuc665uyqtl" path="res://Models/WillowTree.glb" id="12_ps1is"]
 [ext_resource type="PackedScene" uid="uid://2j8oirklixx1" path="res://Models/bridge.glb" id="16_v7kjc"]
+[ext_resource type="PackedScene" uid="uid://6k7rdqqbxu07" path="res://Models/capy.glb" id="17_ox84h"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
 background_mode = 1
@@ -64,21 +64,10 @@ render_target_update_mode = 4
 [node name="Level" type="Node3D" parent="PixelView/SubViewport"]
 
 [node name="groundPondScum" parent="PixelView/SubViewport/Level" instance=ExtResource("2_7tvl6")]
-transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 0.0426655, -0.770055, -0.0506592)
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 0.0426655, -0.770055, -3.51133)
 
 [node name="Objects" type="Node3D" parent="PixelView/SubViewport/Level"]
-
-[node name="GreyBoxWall11" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, 4.14404, 0.0765788, 20.6062)
-
-[node name="GreyBoxWall13" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0.892465, 0.0765788, -5.46155)
-
-[node name="GreyBoxWall14" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -0.892465, 0.0765788, -5.46155)
-
-[node name="GreyBoxWall7" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("2_50knn")]
-transform = Transform3D(2.46236, 0, 0.258198, 0, 1, 0, -0.245603, 0, 2.58864, -2.85838, 0.555325, -19.4424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.46068)
 
 [node name="Pine" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("9_6i2to")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4823, 5.1766, 2.34266)
@@ -110,18 +99,28 @@ transform = Transform3D(-1.68937, 0, 1.07053, 0, 2, 0, -1.07053, 0, -1.68937, -1
 [node name="Trunk_014" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("10_sdgys")]
 transform = Transform3D(-1.58845, 2.64676e-08, -1.21525, 0.309651, 1.93399, -0.404744, 1.17514, -0.509609, -1.53602, -12.966, 1.30736, 23.4048)
 
+[node name="capy" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("17_ox84h")]
+transform = Transform3D(0.38657, 0, -0.583578, 0, 0.7, 0, 0.583578, 0, 0.38657, 0.760297, -0.791775, -5.85262)
+
+[node name="bridge" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("16_v7kjc")]
+transform = Transform3D(1.44971, 0, 0.385143, 0, 1.5, 0, -0.385143, 0, 1.44971, 1.68673, -0.217988, 5.90972)
+
+[node name="capy2" parent="PixelView/SubViewport/Level/Objects" instance=ExtResource("17_ox84h")]
+transform = Transform3D(-0.696169, 0, -0.0731334, 0, 0.7, 0, 0.0731334, 0, -0.696169, 5.45074, -0.791775, 21.1405)
+
 [node name="Water" type="MeshInstance3D" parent="PixelView/SubViewport/Level/Objects"]
 transform = Transform3D(29.5189, 0, 0, 0, 30, 0, 0, 0, 28.7471, 0, -0.645183, 0)
 mesh = SubResource("PlaneMesh_lv1hm")
 
 [node name="Player" parent="PixelView/SubViewport/Level" instance=ExtResource("3_aeydj")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67409, 4.85292, 5.47632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.919, 0.519021)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PixelView/SubViewport/Level"]
 transform = Transform3D(0.388272, 0.920601, -0.0417079, -0.0180773, 0.0528586, 0.998438, 0.921368, -0.386912, 0.0371655, -4.73197, 8.81186, 0)
 
 [node name="Walls" type="Node3D" parent="PixelView/SubViewport/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.46068)
 
 [node name="InvisWall" parent="PixelView/SubViewport/Level/Walls" instance=ExtResource("6_ljlob")]
 transform = Transform3D(7.60087, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.0286)
@@ -232,9 +231,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "Quit"
-
-[node name="bridge" parent="." instance=ExtResource("16_v7kjc")]
-transform = Transform3D(1.44971, 0, 0.385143, 0, 1.5, 0, -0.385143, 0, 1.44971, 1.68673, -0.217988, 5.90972)
 
 [connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
 [connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]

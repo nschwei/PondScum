@@ -1,13 +1,14 @@
 res://Scenes/GreyBox.tscn
 res://Scripts/player.gd
-res://Materials/GeryBoxMat.tres
 res://Materials/PlayerMat.tres
 res://Shader/outline.gdshader
 res://Materials/pixel_shader_mat.tres
 res://Materials/water2.tres
 res://Materials/grass.tres
+res://Materials/GeryBoxMat.tres
 res://Shader/water.gdshader
 res://Scenes/MainMenu.tscn
 res://EnvironObj/GreyBoxWall.tscn
 res://PlayerObj/Player.tscn
 res://EnvironObj/InvisWall.tscn
+res://Models/dust.res

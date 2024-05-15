@@ -30,6 +30,7 @@ var bonus_string = ""
 
 ### refs to things ###
 @onready var model = $PlayerMesh
+@onready var particles_trail = $ParticlesTrail
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +44,8 @@ func _physics_process(delta):
 	# pass to handle functions
 	handle_controls(delta)
 	handle_gravity(delta)
+	
+	handle_effects()
 	
 	# Movement
 	var applied_velocity: Vector3
@@ -186,4 +189,13 @@ func restore_rot():
 	model.rotation = Vector3(0,0,0)
 	
 	
+##################################################
+# Effects
+
+func handle_effects():
+	particles_trail.emitting = false
+	if is_on_floor():
+		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+			particles_trail.emitting = true
+
 

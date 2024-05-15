@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkw6i4na6714r"]
+[gd_scene load_steps=10 format=3 uid="uid://dkw6i4na6714r"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_fnun4"]
 [ext_resource type="Material" uid="uid://dsbv3a3in21kq" path="res://Materials/PlayerMat.tres" id="1_lm2e7"]
 [ext_resource type="Script" path="res://Scripts/FollowCam.gd" id="3_kr6f2"]
 [ext_resource type="Texture2D" uid="uid://bd6up3a8yyvsk" path="res://Materials/blob_shadow.png" id="4_hr8io"]
+[ext_resource type="ArrayMesh" uid="uid://deu06eho4c74" path="res://Models/dust.res" id="5_vrxuu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q7ua7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gn6uc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fq2xf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p8do"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("view")]
 script = ExtResource("1_fnun4")
@@ -40,3 +43,17 @@ transform = Transform3D(0.0194418, 0, -0.999811, 0, 1, 0, 0.999811, 0, 0.0194418
 size = Vector3(2, 6.45007, 2)
 texture_albedo = ExtResource("4_hr8io")
 normal_fade = 0.5
+
+[node name="ParticlesTrail" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.907744, 0)
+material_override = SubResource("StandardMaterial3D_4p8do")
+cast_shadow = 0
+amount = 60
+lifetime = 0.2
+mesh = ExtResource("5_vrxuu")
+emission_shape = 1
+emission_sphere_radius = 0.4
+particle_flag_align_y = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.1, 0)
+scale_amount_min = 0.75
