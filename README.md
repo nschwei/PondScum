@@ -13,12 +13,14 @@
 - drop shadow [x]
 - limits change?
 - pickup to increase spin speed []?
-- dialogue system [] (Just some short lines of text being said in the beginning?)
+- dialogue system [x] (Just some short lines of text being said in the beginning?)
+- lock/unlock mouse []
+- height multiplier []
+- spin boost pickup []
 
 ### How should scoring work?
 every time you complete a single rotation it should add a number of points to the counter
 if you land on your feet you get a full score
-if you don't you get a penalty multiplier
 
 ############
 ### UI
