@@ -17,6 +17,12 @@
 - lock/unlock mouse []
 - height multiplier []
 - spin boost pickup []
+- SFX []
+     - jump sound []
+     - land sound []
+     - full rotation ding (honk?)[]
+     - pickup sound []
+     - bounce sound []
 
 ### How should scoring work?
 every time you complete a single rotation it should add a number of points to the counter
