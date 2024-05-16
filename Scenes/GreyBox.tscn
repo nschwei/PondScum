@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=22 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="2_7tvl6"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://2j8oirklixx1" path="res://Models/bridge.glb" id="16_v7kjc"]
 [ext_resource type="Texture2D" uid="uid://c5f86m3f4xs4a" path="res://Textures/capy.png" id="17_io2t8"]
 [ext_resource type="PackedScene" uid="uid://6k7rdqqbxu07" path="res://Models/capy.glb" id="17_ox84h"]
+[ext_resource type="AudioStream" uid="uid://mhitretdt3lk" path="res://Sfx/creepy-devil-dance-166764.mp3" id="18_uwy2h"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
 background_mode = 1
@@ -270,6 +271,11 @@ theme_override_font_sizes/font_size = 12
 text = "\"If you wanna' take this pond for yourself
 you gotta prove you're at least 
 100 points cool "
+
+[node name="MusicLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_uwy2h")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
 [connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]

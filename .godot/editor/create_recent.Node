@@ -1,3 +1,4 @@
+CPUParticles3D
 AudioStreamPlayer
 AudioStreamPlayer3D
 TextureRect
@@ -9,6 +10,5 @@ RigidBody3D
 AnimationPlayer
 Node3D
 GPUParticles3D
-CPUParticles3D
 MeshInstance3D
 CollisionShape3D

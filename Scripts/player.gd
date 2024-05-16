@@ -12,6 +12,10 @@ signal trick_score(points)
 @export var gravity_strength = 25
 @export var turn_speed = 5
 
+@export var honk_bonus = 500
+
+var can_boost = true
+var base_speed
 var movement_velocity: Vector3
 var rotation_direction: float
 var char_facing: Vector2
@@ -42,12 +46,17 @@ var bonus_string = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(model.rotation)
-	pass # Replace with function body.
+	base_speed = movement_speed
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	# lerp to base move speed
+	#if movement_speed > base_speed:
+	#	movement_speed -= delta * 1000
+	#else:
+	#	can_boost = true
+	#print(movement_speed)
 	
 	# pass to handle functions
 	handle_controls(delta)
@@ -112,6 +121,10 @@ func handle_controls(delta):
 	# Return to normal on key release
 	#if Input.is_action_just_released("reverse"):
 	#	turn_speed = - turn_speed
+	if Input.is_action_just_pressed("honk"):
+		land_sound.play()
+		#movement_speed += honk_bonus
+		#can_boost = false
 		
 	# tricking
 	if not is_on_floor():
