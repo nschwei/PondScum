@@ -14,13 +14,13 @@
 - limits change?
 - dialogue system [x] (Just some short lines of text being said in the beginning?)
 - lock/unlock mouse [x]
-- height multiplier []
+- height multiplier [-]
 - spin boost pickup []
-- SFX []
+- SFX [x]
      - jump sound [x]
      - land sound [x]
      - walk sound [x]
-     - full rotation ding (honk?)[]
+     - full rotation ding (honk?)[-]
      - pickup sound []
      - bounce sound []
 
@@ -44,10 +44,10 @@ if you land on your feet you get a full score
 
 #############
 ### Music
-- Game track (chiptune?) []
-- Main Menu track []
+- Game track (chiptune?) [x]
+- Main Menu track [x]
 
 #############
 ### Things for later
-- jump pad? []
-- geese scoring ? []
+- jump pad? [x]
+- geese scoring ? [-]
