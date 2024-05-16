@@ -32,7 +32,7 @@ if you don't you get a penalty multiplier
 ### Map and visuals
 - grey box a map [x]
 - pixel shader [x]
-- 3D models []
+- 3D models [x]
 
 #############
 ### Music
