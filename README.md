@@ -7,7 +7,7 @@
        This is kinda jank right now and Im not sure what I want to do to make it better. Should I add something to reverse the spin direction (I did but I still don't really like what I did)
 - Scoring points for spinning [x] (keep it super simple for now + bonus for landing upright)
 - Add jump and land deformation [x]
-- rag dolling in air []
+- rag dolling in air [x]
 
 - score win limit [x]
 - drop shadow [x]
