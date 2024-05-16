@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=26 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="2_7tvl6"]
@@ -18,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://2j8oirklixx1" path="res://Models/bridge.glb" id="16_v7kjc"]
 [ext_resource type="Texture2D" uid="uid://c5f86m3f4xs4a" path="res://Textures/capy.png" id="17_io2t8"]
 [ext_resource type="PackedScene" uid="uid://6k7rdqqbxu07" path="res://Models/capy.glb" id="17_ox84h"]
+[ext_resource type="Theme" uid="uid://c0kj7rd11d3hf" path="res://UI/pond_scum.tres" id="18_n41om"]
 [ext_resource type="AudioStream" uid="uid://mhitretdt3lk" path="res://Sfx/creepy-devil-dance-166764.mp3" id="18_uwy2h"]
+[ext_resource type="Theme" uid="uid://cpvqtkau7sr0k" path="res://UI/pond_scum_Talking.tres" id="19_ntdx2"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
 background_mode = 1
@@ -164,16 +166,19 @@ process_mode = 3
 script = ExtResource("7_ykbr5")
 
 [node name="TotalScorePanel" type="PanelContainer" parent="PixelView/SubViewport/CanvasLayer"]
-offset_right = 39.0
-offset_bottom = 37.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 54.0
+offset_bottom = 52.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("18_n41om")
 
 [node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel"]
 layout_mode = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_right = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="ScoreTitle" type="Label" parent="PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -202,6 +207,7 @@ offset_top = -40.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("19_ntdx2")
 
 [node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/CurrentScorePanel"]
 layout_mode = 2
@@ -217,20 +223,28 @@ vertical_alignment = 1
 [node name="PausePanel" type="PanelContainer" parent="PixelView/SubViewport/CanvasLayer"]
 process_mode = 3
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -57.5
+offset_right = 40.5
+offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("18_n41om")
 
 [node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/PausePanel"]
 process_mode = 3
 layout_mode = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PixelView/SubViewport/CanvasLayer/PausePanel/MarginContainer"]
 process_mode = 3
 layout_mode = 2
+theme_override_constants/separation = 13
 
 [node name="Title" type="Label" parent="PixelView/SubViewport/CanvasLayer/PausePanel/MarginContainer/VBoxContainer"]
 process_mode = 3
@@ -266,12 +280,13 @@ offset_right = 161.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("18_n41om")
 
 [node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes/MarginContainer"]

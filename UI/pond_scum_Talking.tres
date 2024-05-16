@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cpvqtkau7sr0k"]
+
+[ext_resource type="Texture2D" uid="uid://bhyxd2edlwgsg" path="res://UI/button.png" id="1_yhw0j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3nfqc"]
+texture = ExtResource("1_yhw0j")
+expand_margin_left = 40.0
+expand_margin_top = 15.0
+expand_margin_right = 40.0
+expand_margin_bottom = 15.0
+modulate_color = Color(0.998962, 0.55664, 0.559727, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rsnf"]
+texture = ExtResource("1_yhw0j")
+expand_margin_left = 40.0
+expand_margin_top = 15.0
+expand_margin_right = 40.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dec3x"]
+texture = ExtResource("1_yhw0j")
+expand_margin_left = 30.0
+expand_margin_top = 20.0
+expand_margin_right = 30.0
+expand_margin_bottom = 20.0
+
+[resource]
+Button/colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 2
+Button/styles/hover = SubResource("StyleBoxTexture_3nfqc")
+Button/styles/normal = SubResource("StyleBoxTexture_0rsnf")
+Label/colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+Label/colors/font_outline_color = Color(0.92549, 0.866667, 0.752941, 1)
+Label/constants/outline_size = 2
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dec3x")

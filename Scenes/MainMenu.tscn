@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://doxqj5egoho01"]
+[gd_scene load_steps=18 format=3 uid="uid://doxqj5egoho01"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_13s00"]
 [ext_resource type="Material" uid="uid://bw0vneyij3v8" path="res://Materials/grass.tres" id="2_0pdq2"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="5_qgupi"]
 [ext_resource type="PackedScene" uid="uid://bufxqhjjljdl5" path="res://Models/goosed.gltf" id="6_j11b2"]
 [ext_resource type="Material" uid="uid://b8bitd1ep6opn" path="res://Materials/water2.tres" id="6_q8ikx"]
+[ext_resource type="Texture2D" uid="uid://dqrwedjldvgjn" path="res://UI/banner.png" id="9_5wchv"]
 [ext_resource type="AudioStream" uid="uid://copyq0guhf2nu" path="res://Sfx/groovy-ambient-funk-201745.mp3" id="9_33m0t"]
+[ext_resource type="Theme" uid="uid://c0kj7rd11d3hf" path="res://UI/pond_scum.tres" id="9_q2p7g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afray"]
 
@@ -62,6 +64,7 @@ mesh = SubResource("QuadMesh_qi1rf")
 transform = Transform3D(0.972227, 0, 0.234039, 0, 1, 0, -0.234039, 0, 0.972227, 1.48024, 1.51463, 3.94153)
 
 [node name="World" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67563, 0, 0)
 
 [node name="PlaceholderGround" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World"]
 transform = Transform3D(27.2598, 0, 0, 0, 0.318677, 0, 0, 0, 20.3756, 0, 0, 0)
@@ -91,17 +94,18 @@ mesh = SubResource("PlaneMesh_8bk5p")
 script = ExtResource("1_13s00")
 
 [node name="MainMenu" type="PanelContainer" parent="SubViewportContainer/SubViewport/MainMenu"]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -82.5
+offset_left = -214.0
 offset_top = -67.0
-offset_right = 82.5
+offset_right = -49.0
 offset_bottom = 67.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("9_q2p7g")
 
 [node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/MainMenu/MainMenu"]
 layout_mode = 2
@@ -112,6 +116,7 @@ theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/MainMenu/MainMenu/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="SubViewportContainer/SubViewport/MainMenu/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -120,14 +125,27 @@ text = "POND SCUM"
 
 [node name="Start" type="Button" parent="SubViewportContainer/SubViewport/MainMenu/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 text = "START"
 icon_alignment = 1
 
 [node name="Quit" type="Button" parent="SubViewportContainer/SubViewport/MainMenu/MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 text = "QUIT"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/MainMenu"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -88.0
+offset_right = 354.0
+offset_bottom = 88.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_5wchv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_33m0t")

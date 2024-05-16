@@ -16,3 +16,5 @@ res://EnvironObj/InvisWall.tscn
 res://Scripts/Game_Manager.gd
 res://Scripts/CanvasLayer.gd
 res://Models/bouncy.gd
+res://UI/pond_scum.tres
+res://UI/pond_scum_Talking.tres
