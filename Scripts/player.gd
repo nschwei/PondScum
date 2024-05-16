@@ -35,6 +35,10 @@ var bonus_string = ""
 @onready var particles_trail = $ParticlesTrail
 @onready var animation = $PlayerCenter/goosed/AnimationPlayer
 @onready var skeleton = $PlayerCenter/goosed/Goose/Skeleton3D
+# Sounds
+@onready var jump_sound = $JumpSound
+@onready var land_sound = $LandSound
+@onready var walk_sound = $WalkSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -168,6 +172,8 @@ func landing():
 	rot_track_y = 0
 	
 	skeleton.physical_bones_stop_simulation()
+	
+	land_sound.play()
 	goose.position = model.position
 	model.scale = Vector3(1.25, 0.75, 1.25)
 	# multiply score if upright
@@ -181,6 +187,7 @@ func landing():
 	gain_points()
 
 func jump():
+	jump_sound.play()
 	on_floor = false
 	skeleton.physical_bones_start_simulation(["Bone.003","Bone.005.R","Bone.005.L"])
 	gravity = - jump_strength
@@ -195,10 +202,13 @@ func restore_rot():
 
 func handle_effects():
 	particles_trail.emitting = false
+	walk_sound.stream_paused = true
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
 			animation.play("Running")
 			animation.speed_scale = 3
+			
+			walk_sound.stream_paused = false
 			particles_trail.emitting = true
 		else:
 			animation.play("Idle")

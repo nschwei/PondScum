@@ -43,6 +43,7 @@ func next_text():
 func pause():
 	pause_menu.visible = !pause_menu.visible
 	get_tree().paused = !get_tree().paused
+	
 	if get_tree().paused:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
@@ -76,8 +77,9 @@ func _on_player_trick_score(points):
 	current_score.text = str(points)
 
 func _on_resume_pressed():
-	pause()
-	print("AAA")
+	pause_menu.visible = false
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 func _on_quit_pressed():
 	get_tree().quit()

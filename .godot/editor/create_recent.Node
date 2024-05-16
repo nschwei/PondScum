@@ -1,3 +1,5 @@
+AudioStreamPlayer
+AudioStreamPlayer3D
 TextureRect
 HBoxContainer
 Label
@@ -10,6 +12,3 @@ GPUParticles3D
 CPUParticles3D
 MeshInstance3D
 CollisionShape3D
-StaticBody3D
-Button
-VBoxContainer
