@@ -31,8 +31,10 @@ var bonus_string = ""
 ### refs to things ###
 #@onready var model = $PlayerMesh
 @onready var model = $PlayerCenter
+@onready var goose = $PlayerCenter/goosed
 @onready var particles_trail = $ParticlesTrail
 @onready var animation = $PlayerCenter/goosed/AnimationPlayer
+@onready var skeleton = $PlayerCenter/goosed/Goose/Skeleton3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -109,6 +111,7 @@ func handle_controls(delta):
 		
 	# tricking
 	if not is_on_floor():
+		#skeleton.physical_bones_start_simulation(["Physical Bone Bone_003"])
 		var input_dir = Vector2(input.x, input.z).normalized()
 		#char_facing = Vector2(model.transform.basis.z.x, model.transform.basis.z.z).normalized()
 		var rot_mod = input_dir.dot(char_facing)
@@ -116,6 +119,15 @@ func handle_controls(delta):
 		#	rot_mod = 1
 		#else: 
 		#	rot_mod = -1
+		# Apply offset to all bones
+		#skeleton.get_child(1).position = position
+		goose.position = Vector3(0,0,0);
+		print(goose.position, position)
+		#print(model.transform)
+		#for bone in skeleton.get_children().slice(1):
+		#	print(bone.name)
+		#skeleton.get_children()[1].mode
+		goose.position = model.position
 		# input for spin directions
 		if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			model.rotate_object_local(Vector3(1,0,0), turn_speed*delta*rot_mod)
@@ -170,6 +182,8 @@ func landing():
 	rot_track_x = 0
 	rot_track_y = 0
 	
+	skeleton.physical_bones_stop_simulation()
+	goose.position = model.position
 	model.scale = Vector3(1.25, 0.75, 1.25)
 	# multiply score if upright
 	var xy_rot = Vector2(model.rotation.x, model.rotation.z)
@@ -183,6 +197,7 @@ func landing():
 
 func jump():
 	on_floor = false
+	skeleton.physical_bones_start_simulation(["Bone.003","Bone.005.R","Bone.005.L"])
 	gravity = - jump_strength
 	model.scale = Vector3(0.5, 1.5, 0.5)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doxqj5egoho01"]
+[gd_scene load_steps=16 format=3 uid="uid://doxqj5egoho01"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_13s00"]
 [ext_resource type="Material" uid="uid://bw0vneyij3v8" path="res://Materials/grass.tres" id="2_0pdq2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://cmwx3qnv1o0sv" path="res://Materials/pixel_shader_mat.tres" id="2_xhfgo"]
 [ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="3_d5vt1"]
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="5_qgupi"]
+[ext_resource type="PackedScene" uid="uid://bufxqhjjljdl5" path="res://Models/goosed.gltf" id="6_j11b2"]
 [ext_resource type="Material" uid="uid://b8bitd1ep6opn" path="res://Materials/water2.tres" id="6_q8ikx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afray"]
@@ -89,6 +90,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.4349, 2.50777, -8.850
 
 [node name="groundPondScum" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("5_qgupi")]
 transform = Transform3D(-0.990065, 0, -0.140607, 0, 1, 0, 0.140607, 0, -0.990065, -1.13663, -0.331804, -0.331917)
+
+[node name="goosed" parent="SubViewportContainer/SubViewport/World" instance=ExtResource("6_j11b2")]
+transform = Transform3D(0.972239, 0, -0.233988, 0, 1, 0, 0.233988, 0, 0.972239, 0.219174, -1.37847, -0.392147)
 
 [node name="Water" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World"]
 transform = Transform3D(8.74043, 0, 2.02049, 0, 20, 0, -1.46892, 0, 12.0224, 0, -0.469184, 0)

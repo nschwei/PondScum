@@ -49,18 +49,17 @@ gravity_strength = 15
 turn_speed = 6
 
 [node name="PlayerCenter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.322826, 0)
 
 [node name="goosed" parent="PlayerCenter" instance=ExtResource("2_3y3vw")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.820028, -0.0951163)
 script = ExtResource("3_muma8")
 
 [node name="Physical Bone Bone" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="1"]
-transform = Transform3D(1, 2.31749e-17, 2.07345e-17, 2.34629e-17, -0.0530708, -0.998586, -2.2249e-17, 0.998586, -0.0530708, -1.25062e-17, 0.58755, 0.0312271)
+transform = Transform3D(1, 2.34632e-17, 2.11656e-17, 2.34633e-17, -0.0530716, -0.998589, -2.22494e-17, 0.998589, -0.0530716, -1.25493e-17, 0.587555, 0.0312266)
 collision_layer = 2
 collision_mask = 2
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0646e-19, -1.10103e-06, 0.588382)
-body_offset = Transform3D(1, -2.88266e-19, -1.51487e-18, -3.20946e-22, 6.55651e-07, -0.999995, 4.65703e-22, 0.999995, 6.55651e-07, 5.84861e-19, 0.588379, 7.15256e-07)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57561e-20, -1.49012e-08, 0.588386)
+body_offset = Transform3D(1, -1.24077e-24, -1.08374e-18, -1.98523e-23, 0, -0.999998, 4.75629e-23, 0.999998, 0, 5.41901e-19, 0.588385, 1.49012e-08)
 gravity_scale = 0.0
 bone_name = "Bone"
 
@@ -70,12 +69,12 @@ shape = SubResource("CapsuleShape3D_33low")
 disabled = true
 
 [node name="Physical Bone Bone_001" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="2"]
-transform = Transform3D(1.5, 3.22768e-18, 1.18176e-17, 3.23555e-18, 1.29079, -0.764074, -1.18177e-17, 0.764074, 1.29079, -2.7391e-17, 1.26115, -0.082909)
+transform = Transform3D(1, 2.06672e-18, 7.87841e-18, 2.15704e-18, 0.860519, -0.509383, -7.87849e-18, 0.509383, 0.860519, -2.75133e-17, 1.26116, -0.0829163)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14804e-20, 3.20491e-06, 0.112613)
-body_offset = Transform3D(1.5, -7.78811e-21, 5.61707e-23, -3.22859e-23, 4.94719e-06, -1.49998, 1.16839e-23, 1.49998, 4.94719e-06, 1.22214e-19, 0.168918, -5.36442e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.551e-23, -6.04159e-08, 0.168932)
+body_offset = Transform3D(1, -9.02692e-20, 6.24004e-23, -1.42172e-25, 3.57628e-07, -0.999983, -1.55096e-25, 0.999983, 3.57628e-07, 4.96308e-24, 0.168929, 0)
 gravity_scale = 0.0
 bone_name = "Bone.001"
 joint_constraints/bias = 0.3
@@ -83,16 +82,17 @@ joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCenter/goosed/Goose/Skeleton3D/Physical Bone Bone_001"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_5pndr")
+disabled = true
 
 [node name="Physical Bone Bone_002" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="3"]
-transform = Transform3D(1.5, 4.31399e-18, -1.12278e-16, 4.24229e-18, 1.49572, 0.113189, 1.12278e-16, -0.113189, 1.49572, -1.24485e-17, 1.33004, -0.454991)
+transform = Transform3D(1, 4.09732e-18, -7.48524e-17, 2.82818e-18, 0.997149, 0.0754587, 7.48522e-17, -0.0754587, 0.997149, -1.18263e-17, 1.33006, -0.45499)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14792e-19, 9.55114e-06, 0.15157)
-body_offset = Transform3D(1.5, 7.16603e-20, 4.71493e-22, 4.91345e-22, 1.43051e-06, -1.5, 8.60268e-23, 1.5, 1.43051e-06, -6.2226e-19, 0.227355, -1.45435e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0788e-23, 4.09081e-07, 0.227353)
+body_offset = Transform3D(1, 1.26915e-18, 2.48154e-24, 1.35658e-22, 2.98023e-07, -1, 3.30872e-23, 1, 2.98023e-07, 3.97047e-23, 0.227353, -4.76837e-07)
 gravity_scale = 0.0
 bone_name = "Bone.002"
 joint_constraints/bias = 0.3
@@ -100,16 +100,17 @@ joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCenter/goosed/Goose/Skeleton3D/Physical Bone Bone_002"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_m6iyp")
+disabled = true
 
 [node name="Physical Bone Bone_003" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="4"]
-transform = Transform3D(1.5, 3.97811e-17, -1.72431e-13, -1.32942e-13, 0.955538, -1.15626, 1.09812e-13, 1.15626, 0.955538, 2.83529e-14, 1.50338, -0.839107)
+transform = Transform3D(1, 2.61309e-17, -1.14955e-13, -8.86286e-14, 0.637026, -0.770842, 7.3209e-14, 0.770842, 0.637026, 2.83529e-14, 1.50339, -0.839119)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.84875e-17, -7.43081e-08, 0.164736)
-body_offset = Transform3D(1.5, 5.76758e-19, -1.72514e-13, -1.72514e-13, -1.13249e-06, -1.5, -6.97955e-19, 1.5, -1.13249e-06, 2.83615e-14, 0.247103, 2.98023e-07)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02393e-17, -1.93887e-07, 0.247123)
+body_offset = Transform3D(1, -5.25673e-21, -1.1501e-13, -1.1501e-13, -5.96046e-08, -1, 0, 1, -5.96046e-08, 2.83614e-14, 0.247123, 2.08616e-07)
 gravity_scale = 0.0
 bone_name = "Bone.003"
 joint_constraints/bias = 0.3
@@ -117,16 +118,17 @@ joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCenter/goosed/Goose/Skeleton3D/Physical Bone Bone_003"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_u50cy")
+disabled = true
 
 [node name="Physical Bone Bone_005_L" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="5"]
-transform = Transform3D(0.533108, -1.39391, -0.150201, -1.15517, -0.527665, 0.798146, -0.794592, -0.167934, -1.26111, 0.263791, -0.373623, 0.676744)
+transform = Transform3D(0.355404, -0.928208, -0.10008, -0.770109, -0.350373, 0.532116, -0.529724, -0.111251, -0.840734, 0.263796, -0.373626, 0.676745)
 collision_layer = 2
 collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08583e-06, -1.96346e-05, 0.230222)
-body_offset = Transform3D(1.5, -8.55923e-05, -2.83122e-06, -3.72529e-06, 0.00011187, -1.5, 1.78814e-06, 1.49988, 0.000110507, -3.97861e-06, 0.345332, 4.00841e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3369e-07, -5.71406e-06, 0.345335)
+body_offset = Transform3D(0.999994, -0.00113189, 3.72529e-07, -1.2368e-06, 2.70307e-05, -0.999999, -5.96046e-08, 0.998352, 1.63466e-05, -3.68804e-07, 0.345334, 5.96046e-08)
 gravity_scale = 0.0
 bone_name = "Bone.005.L"
 joint_constraints/bias = 0.3
@@ -139,12 +141,12 @@ shape = SubResource("CapsuleShape3D_6oiwc")
 disabled = true
 
 [node name="Physical Bone Bone_005_R" type="PhysicalBone3D" parent="PlayerCenter/goosed/Goose/Skeleton3D" index="6"]
-transform = Transform3D(0.533108, 1.39391, 0.150201, 1.15517, -0.527665, 0.798146, 0.794592, -0.167934, -1.26111, -0.263791, -0.373623, 0.676744)
+transform = Transform3D(0.355404, 0.928108, 0.10008, 0.770109, -0.350242, 0.532116, 0.529724, -0.111179, -0.840734, -0.263796, -0.373626, 0.676745)
 collision_layer = 2
 collision_mask = 2
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08583e-06, -1.96346e-05, 0.230222)
-body_offset = Transform3D(1.5, 8.55923e-05, 2.83122e-06, 3.72529e-06, 0.00011187, -1.5, -1.78814e-06, 1.49988, 0.000110507, 3.97861e-06, 0.345332, 4.00841e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.33097e-07, -5.71491e-06, 0.345335)
+body_offset = Transform3D(0.999994, 0.00123551, -3.72529e-07, 1.2368e-06, 2.80812e-05, -0.999999, 5.96046e-08, 0.998205, 1.63466e-05, 3.68804e-07, 0.345334, 5.96046e-08)
 gravity_scale = 0.0
 bone_name = "Bone.005.R"
 joint_constraints/bias = 0.3

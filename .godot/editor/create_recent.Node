@@ -1,3 +1,4 @@
+RigidBody3D
 AnimationPlayer
 Node3D
 GPUParticles3D
@@ -11,5 +12,3 @@ VBoxContainer
 MarginContainer
 PanelContainer
 CanvasLayer
-WorldEnvironment
-Camera3D
