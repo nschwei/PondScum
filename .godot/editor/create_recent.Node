@@ -1,3 +1,8 @@
+TextureRect
+HBoxContainer
+Label
+MarginContainer
+PanelContainer
 RigidBody3D
 AnimationPlayer
 Node3D
@@ -7,8 +12,4 @@ MeshInstance3D
 CollisionShape3D
 StaticBody3D
 Button
-Label
 VBoxContainer
-MarginContainer
-PanelContainer
-CanvasLayer

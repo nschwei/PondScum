@@ -13,3 +13,5 @@ res://Scenes/GreyBox.tscn
 res://Scenes/MainMenu.tscn
 res://EnvironObj/GreyBoxWall.tscn
 res://EnvironObj/InvisWall.tscn
+res://Scripts/Game_Manager.gd
+res://Scripts/CanvasLayer.gd

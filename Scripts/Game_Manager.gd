@@ -2,17 +2,24 @@ extends Node
 
 var score = 0
 
-@export var win_score = 100
+var check_point = 0
+@export var fake_win = 100
+@export var win_score = 1000
+@onready var canvas = $PixelView/SubViewport/CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# start with dialouge
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#score = int($PixelView/SubViewport/CanvasLayer/TotalScorePanel/MarginContainer/VBoxContainer/TotalScore.text)
+	if score >= fake_win and check_point == 0:
+		canvas.next_text()
+		check_point += 1
 	if score >= win_score:
-		print("BIIG WINNER")
+		canvas.next_text()
 
 func score_points(points):
 	print('scored points')

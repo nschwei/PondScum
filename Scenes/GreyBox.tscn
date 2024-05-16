@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bg3b0na8xx75u"]
+[gd_scene load_steps=21 format=3 uid="uid://bg3b0na8xx75u"]
 
 [ext_resource type="Script" path="res://Scripts/Game_Manager.gd" id="1_q4rcx"]
 [ext_resource type="PackedScene" uid="uid://bcvrut54icqww" path="res://Models/groundPondScum.glb" id="2_7tvl6"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dxf4ifswrtvjr" path="res://Models/NormalTree.glb" id="11_lvhhp"]
 [ext_resource type="PackedScene" uid="uid://b6fuc665uyqtl" path="res://Models/WillowTree.glb" id="12_ps1is"]
 [ext_resource type="PackedScene" uid="uid://2j8oirklixx1" path="res://Models/bridge.glb" id="16_v7kjc"]
+[ext_resource type="Texture2D" uid="uid://c5f86m3f4xs4a" path="res://Textures/capy.png" id="17_io2t8"]
 [ext_resource type="PackedScene" uid="uid://6k7rdqqbxu07" path="res://Models/capy.glb" id="17_ox84h"]
 
 [sub_resource type="Environment" id="Environment_i80ls"]
@@ -231,6 +232,44 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "Quit"
+
+[node name="TalkingDudes" type="PanelContainer" parent="PixelView/SubViewport/CanvasLayer"]
+process_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -66.0
+offset_right = 161.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("17_io2t8")
+expand_mode = 2
+flip_h = true
+
+[node name="Text" type="Label" parent="PixelView/SubViewport/CanvasLayer/TalkingDudes/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "\"If you wanna' take this pond for yourself
+you gotta prove you're at least 
+100 points cool "
 
 [connection signal="score_points" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_score_points"]
 [connection signal="trick_score" from="PixelView/SubViewport/Level/Player" to="PixelView/SubViewport/CanvasLayer" method="_on_player_trick_score"]

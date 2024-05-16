@@ -1,18 +1,40 @@
 extends CanvasLayer
 
+var current_line = 0
+var dialogue = ["If you wanna' take this pond for yourself
+you gotta prove you're at least 
+100 points cool ", "Umm actually I meant 1000" , "Dang... Fine, the Pond's yours
+No need to rub it in"]
+
 @onready var total_score = $TotalScorePanel/MarginContainer/VBoxContainer/TotalScore
 @onready var current_score = $CurrentScorePanel/MarginContainer/CurrentScore
 @onready var current_score_panel = $CurrentScorePanel
 @onready var pause_menu = $PausePanel
 
+@onready var talk_box = $TalkingDudes
+@onready var talk_text = $TalkingDudes/MarginContainer/HBoxContainer/Text
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	get_tree().paused = true
+	current_score_panel.visible = false
+	next_text()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	check_text()
 	check_toggle_pause()
+
+func check_text():
+	if Input.is_action_just_pressed("side_flip"):
+		talk_box.visible = false
+		get_tree().paused = false
+
+func next_text():
+	print(current_line)
+	talk_box.visible = true
+	talk_text.text = dialogue[current_line]
+	current_line += 1
 
 func pause():
 	pause_menu.visible = !pause_menu.visible
