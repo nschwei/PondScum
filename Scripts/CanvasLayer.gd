@@ -4,7 +4,8 @@ var current_line = 0
 var dialogue = ["If you wanna' take this pond for yourself
 you gotta prove you're at least 
 100 points cool ", "Umm actually I meant 1000" , "Dang... Fine, the Pond's yours
-No need to rub it in"]
+No need to rub it in
+(endless tricking)"]
 
 @onready var total_score = $TotalScorePanel/MarginContainer/VBoxContainer/TotalScore
 @onready var current_score = $CurrentScorePanel/MarginContainer/CurrentScore
@@ -35,6 +36,8 @@ func next_text():
 	talk_box.visible = true
 	talk_text.text = dialogue[current_line]
 	current_line += 1
+	if current_line >= len(dialogue):
+		current_line = len(dialogue)-1
 
 func pause():
 	pause_menu.visible = !pause_menu.visible

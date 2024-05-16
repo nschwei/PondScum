@@ -18,8 +18,9 @@ func _process(delta):
 	if score >= fake_win and check_point == 0:
 		canvas.next_text()
 		check_point += 1
-	if score >= win_score:
+	if score >= win_score and check_point == 1:
 		canvas.next_text()
+		check_point += 1
 
 func score_points(points):
 	print('scored points')
