@@ -28,6 +28,7 @@ func _process(delta):
 
 func check_text():
 	if Input.is_action_just_pressed("side_flip"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 		talk_box.visible = false
 		get_tree().paused = false
 
@@ -42,6 +43,10 @@ func next_text():
 func pause():
 	pause_menu.visible = !pause_menu.visible
 	get_tree().paused = !get_tree().paused
+	if get_tree().paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 func check_toggle_pause():
 	if Input.is_action_just_pressed("pause"):
