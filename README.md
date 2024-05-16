@@ -13,7 +13,7 @@
 - drop shadow [x]
 - limits change?
 - dialogue system [x] (Just some short lines of text being said in the beginning?)
-- lock/unlock mouse []
+- lock/unlock mouse [x]
 - height multiplier []
 - spin boost pickup []
 - SFX []
