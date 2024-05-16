@@ -1,5 +1,9 @@
-CPUParticles3D
+CollisionShape3D
+Area3D
+StaticBody3D
+MeshInstance3D
 AudioStreamPlayer
+CPUParticles3D
 AudioStreamPlayer3D
 TextureRect
 HBoxContainer
@@ -8,7 +12,3 @@ MarginContainer
 PanelContainer
 RigidBody3D
 AnimationPlayer
-Node3D
-GPUParticles3D
-MeshInstance3D
-CollisionShape3D

@@ -141,7 +141,7 @@ func handle_controls(delta):
 		if Input.is_action_pressed("side_flip"):
 			model.rotate_object_local(Vector3(0,0,1), turn_speed*delta)
 			rot_track_y += (turn_speed*delta)
-			trick_points += turn_speed*delta*rot_mod
+			trick_points += turn_speed*delta*.5
 			
 		# detect a full rotation
 		detect_rot()
@@ -198,6 +198,9 @@ func landing():
 		bonus_string = " x 2"
 	# apply points
 	gain_points()
+
+func bounce(power):
+	gravity = - power
 
 func jump():
 	jump_sound.play()

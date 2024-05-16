@@ -3,9 +3,13 @@ extends CanvasLayer
 var current_line = 0
 var dialogue = ["If you wanna' take this pond for yourself
 you gotta prove you're at least 
-100 points cool ", "Umm actually I meant 1000" , "Dang... Fine, the Pond's yours
+100 points cool ",
+ "Umm actually I meant 500",
+ "No wait I meant 1000" ,
+ "Holy moly this guy's crazy, can you do 2000?",
+ "Dang... Fine, the Pond's yours
 No need to rub it in
-(endless tricking)"]
+(endless tricking mode)"]
 
 @onready var total_score = $TotalScorePanel/MarginContainer/VBoxContainer/TotalScore
 @onready var current_score = $CurrentScorePanel/MarginContainer/CurrentScore
