@@ -31,9 +31,9 @@ if you land on your feet you get a full score
 ############
 ### UI
  - Pause menu [x]
-     - this will need some art and stuff but it functions for now []
+     - this will need some art and stuff but it functions for now [x]
  - Main menu [x]
-      - Once again this is functionally there but very bare bones in the looks []
+      - Once again this is functionally there but very bare bones in the looks [x]
  - Score UI [x]
  
 #############
